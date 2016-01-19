@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var label5: UILabel!
     @IBOutlet weak var currentLetterLabel: UILabel!
     
+    let labelArray2 = "BCDFGHJKLMNPQRSTVWXYZ"
     let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     var counter = 0
     var currentLetter:Character!
@@ -86,6 +87,15 @@ class ViewController: UIViewController {
             alert("you have at least one vowel", message: "Press ok to continue", buttonText: "ok")
             
         }
+        else if noVowels()
+        {
+            alert("you need at least one vowel to continue", message: "press ok to continue", buttonText: "ok")
+        }
+        
+        if atLeastTwoVowels()
+        {
+            alert("you have two vowels", message: "press ok to continue", buttonText: "ok")
+        }
         
     }
     
@@ -100,6 +110,37 @@ class ViewController: UIViewController {
     func atLeastOneVowel() -> Bool
     {
         if labelArray.contains(isVowel)
+        {
+            return true
+        }
+        return false
+    }
+    
+    
+    func atLeastTwoVowels() -> Bool
+    {
+        if labelArray.contains(isVowel)
+        {
+            return true
+        }
+        return false
+    }
+    
+    func noVowels() -> Bool
+    {
+        if labelArray.contains(isConstinants)
+        {
+            return true
+        }
+        return false
+    }
+    
+    
+    
+    
+    func isConstinants(label:UILabel) -> Bool
+    {
+        if (label.text == labelArray2)
         {
             return true
         }
