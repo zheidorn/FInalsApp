@@ -72,10 +72,7 @@ class ViewController: UIViewController {
     {
         counter = 0
         
-        let alert = UIAlertController(title: "Resetting Counter", message: "Press Ok To Reset", preferredStyle: UIAlertControllerStyle.Alert)
-        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel, handler: nil)
-        alert.addAction(okAction)
-        presentViewController(alert, animated: true, completion: nil)
+        alert("Resetting Counter", message: "Press ok to continue", buttonText:"Ok")
         
         
     }
@@ -86,12 +83,18 @@ class ViewController: UIViewController {
         if atLeastOneVowel()
         {
             
-            let alert = UIAlertController(title: "You have at least one vowel", message: "Press Ok to continue", preferredStyle: UIAlertControllerStyle.Alert)
-            let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel, handler: nil)
-                alert.addAction(okAction)
-                presentViewController(alert, animated: true, completion: nil)
+            alert("you have at least one vowel", message: "Press ok to continue", buttonText: "ok")
+            
         }
+        
     }
+    
+    func alert (title:String, message:String, buttonText:String)
+    {
+        let alert = UIAlertController(title:title, message:message, preferredStyle: UIAlertControllerStyle.Alert)
+        let okAction = UIAlertAction(title:buttonText, style: UIAlertActionStyle.Cancel, handler: nil)
+        alert.addAction(okAction)
+        presentViewController(alert, animated: true, completion: nil)    }
     
     
     func atLeastOneVowel() -> Bool
