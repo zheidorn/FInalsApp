@@ -21,20 +21,20 @@ class ViewController: UIViewController {
     var counter = 0
     var currentLetter:Character!
     var labelArray = [UILabel]()
-
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            getCurrentLetter()
-            labelArray = [label1, label2, label3, label4, label5]
-        }
-        
-            
     
-        
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        getCurrentLetter()
+        labelArray = [label1, label2, label3, label4, label5]
+    }
     
-        
+    
+    
+    
+    
+    
     @IBAction func whenTapped(sender: UITapGestureRecognizer) {
-    
+        
         let selectedPoint = sender.locationInView(self.view)
         print(selectedPoint)
         
@@ -46,52 +46,82 @@ class ViewController: UIViewController {
             }
         }
         
-    
-    
-            
-            counter++
-            
-            if counter == 26
-            {
-                reset()
-            }
-            
-            getCurrentLetter()
-            
-            
-        }
         
-        func getCurrentLetter() {
-            let myRange = Range<String.Index>(start: letters.startIndex.advancedBy (counter), end: letters.startIndex.advancedBy(counter+1))
-            
-            currentLetterLabel.text = letters.substringWithRange(myRange)
-            currentLetter = Character(letters.substringWithRange(myRange))
-        }
         
-        func reset()
+        
+        counter++
+        
+        if counter == 26
         {
-            counter = 0
-            
-            let alert = UIAlertController(title: "Resetting Counter", message: "Press Ok To Reset", preferredStyle: UIAlertControllerStyle.Alert)
-            let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel, handler: clearLabels)
-            alert.addAction(okAction)
-            presentViewController(alert, animated: true, completion: nil)
-            
+            reset()
         }
         
-        func clearLabels(action: UIAlertAction)
+        getCurrentLetter()
+        
+        
+    }
+    
+    func getCurrentLetter() {
+        let myRange = Range<String.Index>(start: letters.startIndex.advancedBy (counter), end: letters.startIndex.advancedBy(counter+1))
+        
+        currentLetterLabel.text = letters.substringWithRange(myRange)
+        currentLetter = Character(letters.substringWithRange(myRange))
+    }
+    
+    func reset()
+    {
+        counter = 0
+        
+        let alert = UIAlertController(title: "Resetting Counter", message: "Press Ok To Reset", preferredStyle: UIAlertControllerStyle.Alert)
+        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel, handler: nil)
+        alert.addAction(okAction)
+        presentViewController(alert, animated: true, completion: nil)
+        
+        
+    }
+    
+    
+    
+    @IBAction func whenDone(sender: UIButton) {
+        if atLeastOneVowel()
         {
-            label1.text = ""
-            label2.text = ""
-            label3.text = ""
-            label4.text = ""
-            label5.text = ""
+            
+            let alert = UIAlertController(title: "You have at least one vowel", message: "Press Ok to continue", preferredStyle: UIAlertControllerStyle.Alert)
+            let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel, handler: nil)
+                alert.addAction(okAction)
+                presentViewController(alert, animated: true, completion: nil)
         }
-
+    }
     
     
-
+    func atLeastOneVowel() -> Bool
+    {
+        if labelArray.contains(isVowel)
+        {
+            return true
+        }
+        return false
+    }
     
-
+    func isVowel(label: UILabel) -> Bool
+    {
+        if (label.text == "A" || label.text == "E" || label.text == "I" || label.text == "O" || label.text == "U" )
+        {
+            return true
+        }
+        return false
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
