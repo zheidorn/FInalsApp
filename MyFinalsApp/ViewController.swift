@@ -85,18 +85,21 @@ class ViewController: UIViewController {
         {
             
             alert("you have at least one vowel", message: "Press ok to continue", buttonText: "ok")
+            presentViewController(SecondViewController(), animated: true, completion: nil)
+            let view = self.storyboard?.instantiateViewControllerWithIdentifier("SecondViewController")
+            
+            self.navigationController?.pushViewController(view!, animated: true)
             
         }
         if noVowels()
         {
-            alert("you need at least one vowel to continue", message: "press ok to continue", buttonText: "ok")
+            alert("you need at least one vowel to move on", message: "press ok to continue", buttonText: "ok")
         }
         
         if atLeastTwoVowels()
         {
             alert("you have two vowels", message: "press ok to continue", buttonText: "ok")
         }
-        
     }
     
     func alert (title:String, message:String, buttonText:String)
@@ -104,14 +107,21 @@ class ViewController: UIViewController {
         let alert = UIAlertController(title:title, message:message, preferredStyle: UIAlertControllerStyle.Alert)
         let okAction = UIAlertAction(title:buttonText, style: UIAlertActionStyle.Cancel, handler: nil)
         alert.addAction(okAction)
-        presentViewController(alert, animated: true, completion: nil)    }
+        presentViewController(alert, animated: true, completion: nil)
+        
+        
+    }
+    
     
     
     func atLeastOneVowel() -> Bool
     {
         if labelArray.contains(isVowel)
         {
+            
             return true
+            
+
         }
         return false
     }
