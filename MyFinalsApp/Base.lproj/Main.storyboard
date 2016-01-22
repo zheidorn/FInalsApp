@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7MD-Wo-9ag">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7MD-Wo-9ag">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -70,7 +71,7 @@
                                 <state key="normal" title="I'm Done"/>
                                 <connections>
                                     <action selector="whenDone:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fK3-au-1mT"/>
-                                    <segue destination="FKS-hm-aED" kind="show" identifier="whenDoneSegue" id="Qgz-qA-b6G"/>
+                                    <segue destination="FKS-hm-aED" kind="show" identifier="whenDoneSegue" id="tW3-vd-1Kf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -80,7 +81,7 @@
                             <outletCollection property="gestureRecognizers" destination="nhH-Kg-kbK" appends="YES" id="m9h-hc-oRP"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="a9q-LC-xdA"/>
+                    <navigationItem key="navigationItem" id="58G-Cb-L04"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="currentLetterLabel" destination="Fvt-Ft-Cfg" id="xxh-bw-hXF"/>
@@ -98,7 +99,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1020" y="-351"/>
+            <point key="canvasLocation" x="985" y="-346"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="Xp0-ji-a9J">
@@ -108,18 +109,18 @@
                         <viewControllerLayoutGuide type="top" id="EeX-vb-X0q"/>
                         <viewControllerLayoutGuide type="bottom" id="K10-O7-0bA"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="rrh-Fh-O0A">
+                    <view key="view" tag="1" contentMode="scaleAspectFill" id="rrh-Fh-O0A">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My favorite word is" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ieg-f8-KR2">
-                                <rect key="frame" x="117" y="54" width="433" height="65"/>
+                                <rect key="frame" x="157" y="145" width="433" height="65"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.26812296275573488" green="1" blue="0.45603464746898559" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
@@ -128,7 +129,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NRE-Qj-uiD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1720" y="-272"/>
+            <point key="canvasLocation" x="1841" y="-346"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="B58-LG-hD9">
@@ -160,30 +161,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="cool background" translatesAutoresizingMaskIntoConstraints="NO" id="R45-2G-E7s">
+                                <rect key="frame" x="-8" y="-74" width="828" height="1100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1099" id="Nnd-yf-Fnf"/>
+                                    <constraint firstAttribute="width" constant="828" id="owp-2o-aEg"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to 5 letter word!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bS2-5S-Nmv">
                                 <rect key="frame" x="182" y="118" width="404" height="97"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <color key="textColor" red="0.74119226790000003" green="0.12582220890000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Click below for instuctions!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zd3-Ws-k0M">
-                                <rect key="frame" x="200" y="249" width="369" height="75"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0oU-Uj-qWs">
-                                <rect key="frame" x="430" y="469" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="295" y="465" width="179" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Begin">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" id="UOr-Oz-ogi"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R45-2G-E7s">
-                                <rect key="frame" x="52" y="-75" width="768" height="1024"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="h8i-gT-qjE" firstAttribute="top" secondItem="R45-2G-E7s" secondAttribute="bottom" id="SMo-je-J5d"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="R45-2G-E7s" secondAttribute="trailing" constant="-72" id="dIF-Nr-voU"/>
+                            <constraint firstItem="R45-2G-E7s" firstAttribute="top" secondItem="e1F-Xj-YmY" secondAttribute="topMargin" constant="-75" id="ill-Ka-64W"/>
+                            <constraint firstItem="R45-2G-E7s" firstAttribute="leading" secondItem="e1F-Xj-YmY" secondAttribute="leadingMargin" constant="-28" id="uno-2o-BLd"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                 </viewController>
@@ -192,6 +200,9 @@
             <point key="canvasLocation" x="141" y="286"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cool background" width="2560" height="1600"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="UOr-Oz-ogi"/>
     </inferredMetricsTieBreakers>
