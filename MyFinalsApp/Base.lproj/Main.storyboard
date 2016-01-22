@@ -66,11 +66,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8We-5C-34u">
-                                <rect key="frame" x="268" y="376" width="122" height="30"/>
+                                <rect key="frame" x="323" y="384" width="122" height="30"/>
                                 <state key="normal" title="I'm Done"/>
                                 <connections>
                                     <action selector="whenDone:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fK3-au-1mT"/>
-                                    <segue destination="FKS-hm-aED" kind="show" id="cvn-6f-8GR"/>
+                                    <segue destination="FKS-hm-aED" kind="show" identifier="whenDoneSegue" id="Qgz-qA-b6G"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -112,8 +112,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ieg-f8-KR2">
-                                <rect key="frame" x="337" y="72" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My favorite word is" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ieg-f8-KR2">
+                                <rect key="frame" x="117" y="54" width="433" height="65"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -122,10 +122,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="label1" destination="Ieg-f8-KR2" id="l6j-O0-QYg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NRE-Qj-uiD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1810" y="-206"/>
+            <point key="canvasLocation" x="1720" y="-272"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="B58-LG-hD9">
@@ -143,7 +146,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tEh-ID-mGL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="257" y="-351"/>
+            <point key="canvasLocation" x="-79" y="-895"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="XRf-BQ-DKq">
@@ -173,7 +176,7 @@
                                 <rect key="frame" x="430" y="469" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="Dsa-Tn-8Tm"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="UOr-Oz-ogi"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R45-2G-E7s">
@@ -186,10 +189,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V7X-aw-RCD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="129" y="522"/>
+            <point key="canvasLocation" x="141" y="286"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="HSI-hx-tHM"/>
+        <segue reference="UOr-Oz-ogi"/>
     </inferredMetricsTieBreakers>
 </document>

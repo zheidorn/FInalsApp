@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var label5: UILabel!
     @IBOutlet weak var currentLetterLabel: UILabel!
     
-   
+    
     let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     var counter = 0
     var currentLetter:Character!
@@ -27,9 +27,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         getCurrentLetter()
         labelArray = [label1, label2, label3, label4, label5]
+    
     }
     
     
+
+
     
     
     
@@ -46,8 +49,8 @@ class ViewController: UIViewController {
                 label.text = String(currentLetter)
             }
         }
-        
-        
+    
+
         
         
         counter++
@@ -79,16 +82,33 @@ class ViewController: UIViewController {
     }
     
     
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        if atLeastOneVowel()
+        {
+            return true
+        }
+        return false
+    }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let next = segue.destinationViewController as! SecondViewController
+        next.passedString = makeString()
+       
+    }
     @IBAction func whenDone(sender: UIButton) {
         if atLeastOneVowel()
         {
+            performSegueWithIdentifier("whenDoneSegue", sender: sender)
             
-            alert("you have at least one vowel", message: "Press ok to continue", buttonText: "ok")
-            presentViewController(SecondViewController(), animated: true, completion: nil)
-            let view = self.storyboard?.instantiateViewControllerWithIdentifier("SecondViewController")
+           
+            //alert("you have at least one vowel", message: "Press ok to continue", buttonText: "ok")
             
-            self.navigationController?.pushViewController(view!, animated: true)
+            //presentViewController(SecondViewController(), animated: true, completion: nil)
+            //let view = self.storyboard?.instantiateViewControllerWithIdentifier("SecondViewController")
+            
+            //self.navigationController?.pushViewController(view!, animated: true)
+            
+            
             
         }
         if noVowels()
@@ -96,10 +116,7 @@ class ViewController: UIViewController {
             alert("you need at least one vowel to move on", message: "press ok to continue", buttonText: "ok")
         }
         
-        if atLeastTwoVowels()
-        {
-            alert("you have two vowels", message: "press ok to continue", buttonText: "ok")
-        }
+        
     }
     
     func alert (title:String, message:String, buttonText:String)
@@ -127,21 +144,26 @@ class ViewController: UIViewController {
     }
     
     
-    func atLeastTwoVowels() -> Bool
-    {
-        if labelArray.contains(twoVowels)
-        {
-            return true
-        }
-        return false
-    }
+    
     
     func noVowels() -> Bool
     {
         return !atLeastOneVowel()
     }
     
-    
+    func makeString() -> String
+    {
+        var result = ""
+        for	label in labelArray
+        {
+            if label.text != nil {
+             result = result + label.text!
+            } else {
+                result = result + " "
+            }
+        }
+        return result
+    }
     
     
   
@@ -155,26 +177,7 @@ class ViewController: UIViewController {
         return false
     }
     
-    func twoVowels(label:UILabel) -> Bool
-    {
-        if (label.text == "A" + "A" || label.text == "E" + "E" || label.text == "I" + "I" || label.text == "O" + "O" || label.text == "U" + "U" )
-        
-        {
-            return true
-        }
-        return false
-    }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
 }
-
